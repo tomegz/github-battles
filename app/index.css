@@ -20,3 +20,6 @@ body {
 	font-weight: bold;
 	cursor: pointer;
 }
+.languages li.selected {
+	color: #d0021b;
+}
