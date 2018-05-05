@@ -1,4 +1,6 @@
 import React from "react";
+import PropTypes from "prop-types";
+import SelectLanguage from "./SelectLanguage";
 
 class Popular extends React.Component {
   constructor(props) {
@@ -14,19 +16,11 @@ class Popular extends React.Component {
     });
   }
   render() {
-    const languages = ["All", "JavaScript", "Ruby", "Java", "CSS", "Python"];
     return (
-      <ul className="languages">
-        {languages.map(lang => {
-          const selectedClass = lang === this.state.selectedLanguage ? "selected" : "";
-          return (
-            <li className={selectedClass}
-                key={lang} 
-                onClick={() => this.updateLanguage(lang)}>{lang}
-            </li>
-          );
-        })}
-      </ul>
+      <div>
+        <SelectLanguage selectedLanguage={this.state.selectedLanguage}
+                        onSelect={this.updateLanguage} />
+      </div>
     );
   }
 }
