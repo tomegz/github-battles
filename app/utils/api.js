@@ -16,7 +16,7 @@ const getRepos = (username) => {
 }
 
 const getStarCount = (repos) => {
-  repos.data.reduce((count, repo) => {
+  return repos.data.reduce((count, repo) => {
     return count + repo.stargazers_count;
   }, 0);
 }
@@ -47,7 +47,7 @@ const getUserData = (player) => {
 }
 
 const sortPlayers = (players) => {
-  players.sort((a, b) => b.score - a.score);
+  return players.sort((a, b) => b.score - a.score);
 }
 
 export const battle = (players) => {
