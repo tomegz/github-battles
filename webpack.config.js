@@ -1,6 +1,8 @@
 var path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
-module.exports = {
+var webpack = require('webpack');
+
+var config = {
   entry: './app/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -21,5 +23,21 @@ module.exports = {
       template: 'app/index.html'
     })
   ],
-  mode: "development"
+  mode: "development",
+  optimization: {
+    minimize: false
+  }
 };
+
+if(process.env.NODE_ENV === 'production') {
+  config.plugins.push(
+    new webpack.DefinePlugin({
+      'process.env': {
+        'NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+      }
+    })
+  );
+  config.optimization.minimize = true;
+}
+
+module.exports = config;
