@@ -7,3 +7,9 @@ I learned how to use Github API and write cleaner code for asynchronous requests
 * Github API
 # License
 * This project is licensed under the MIT License.
+# Installation
+```
+npm install
+npm start
+```
+Or enjoy live version [here](https://github-battles-dda96.firebaseapp.com/).
